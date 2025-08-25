@@ -1,0 +1,27 @@
+1. Creating and Renaming Files/Directories
+mkdir test_dir                # Creates a directory named test_dir
+cd test_dir                   # Changing directory to test_dir
+touch example.txt             # Creates an empty file called example.txt inside test_dir
+mv example.txt renamed_example.txt  # Renames example.txt to renamed_example.txt
+
+2. Viewing File Contents
+cat /etc/passwd               # Displays the contents of /etc/passwd
+head -n 5 /etc/passwd         # Shows the first 5 lines of /etc/passwd
+tail -n 5 /etc/passwd         # Shows the last 5 lines of /etc/passwd
+
+3. Searching for Patterns
+grep "root" -n /etc/passwd       # Finds all lines containing "root" in /etc/passwd
+
+4. Zipping and Unzipping
+zip -r test_dir.zip test_dir  # Compresses test_dir into test_dir.zip
+unzip test_dir.zip -d unzipped_dir  # Unzips test_dir.zip into unzipped_dir
+
+5. Downloading Files
+wget https://gist.githubusercontent.com/Talha-Altair/b8a27d2b45add1dd7658fd34fa1968db/raw/bc45208c96df65e8e659c04e7d1f1bb54ec5b7e2/linux_commands.txt  # Downloads a file from the given URL
+
+6. Changing Permissions
+touch secure.txt              # Creates a file named secure.txt
+chmod 444 secure.txt          # Sets secure.txt to read-only for everyone
+
+7. Working with Environment Variables
+export MY_VAR="Hello, Linux!" # Sets an environment variable MY_VAR with the value "Hello, Linux!"
