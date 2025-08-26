@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 MONGO_URI = os.getenv("MONGO_URI")
 
-client = MongoClient("mongodb+srv://sagar:sagar1636@cluster0.qnwplx3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")  # // fake query to display error message
+client = MongoClient("mongodb+srv://example:example@cluster0.qnwplx3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")  # // fake query to display error message
 # client = MongoClient(MONGO_URI)
 
 db = client.clients_data
