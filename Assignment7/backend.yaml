@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sagar-backend
+  template:
+    metadata:
+      labels:
+        app: sagar-backend
+    spec:
+      containers:
+      - name: sagar-backend
+        image: docker.io/sagar0547/tutedude_ass5_backend
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  selector:
+    app: sagar-backend
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000

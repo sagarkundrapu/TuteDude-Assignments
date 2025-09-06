@@ -1,0 +1,88 @@
+# creation of minikube cluster
+PS D:\placement-notes\Tute Dude\Assignment7> minikube start
+😄  minikube v1.36.0 on Microsoft Windows 11 Home Single Language 10.0.26100.5074 Build 26100.5074
+E0831 01:20:50.685188   21112 start.go:819] api.Load failed for minikube: filestore "minikube": Docker machine "minikube" does not exist. Use "docker-machine ls" to list machines. Use "docker-machine create" to add a new one.
+✨  Using the docker driver based on existing profile
+👍  Starting "minikube" primary control-plane node in "minikube" cluster
+🚜  Pulling base image v0.0.47 ...
+🔥  Creating docker container (CPUs=2, Memory=2200MB) ...
+🐳  Preparing Kubernetes v1.33.1 on Docker 28.1.1 ...
+❗  Failing to connect to https://registry.k8s.io/ from both inside the minikube container and host machine
+💡  To pull new external images, you may need to configure a proxy: https://minikube.sigs.k8s.io/docs/reference/networking/proxy/
+    ▪ Generating certificates and keys ...
+💡  To pull new external images, you may need to configure a proxy: https://minikube.sigs.k8s.io/docs/reference/networking/proxy/
+    ▪ Generating certificates and keys ...
+    ▪ Booting up control plane ...
+class, storage-provisioner
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+PS D:\TUTEDUDE assignments\Kubernetes class, storage-provisioner
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+
+
+# Opening minikube dashboard
+
+PS D:\placement-notes\Tute Dude\Assignment7> minikube dashboard        
+🔌  Enabling dashboard ...
+    ▪ Using image docker.io/kubernetesui/dashboard:v2.7.0
+    ▪ Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+💡  Some dashboard features require the metrics-server addon. To enable all features please run:
+
+        minikube addons enable metrics-server
+
+🤔  Verifying dashboard health ...    
+🚀  Launching proxy ...
+🤔  Verifying proxy health ...        
+🎉  Opening http://127.0.0.1:51200/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+
+
+
+# creation of deployment and services
+
+PS D:\placement-notes\Tute Dude\Assignment7> kubectl apply -f .\backend.yaml -f .\frontend.yaml
+deployment.apps/backend-deployment created
+service/backend-service created
+deployment.apps/frontend-deployment created
+service/frontend-service created
+
+
+# accessing the service
+
+PS D:\placement-notes\Tute Dude\Assignment7> minikube service frontend-service
+|-----------|------------------|-------------|--------------|
+| NAMESPACE |       NAME       | TARGET PORT |     URL      |
+|-----------|------------------|-------------|--------------|
+| default   | frontend-service |             | No node port |
+|-----------|------------------|-------------|--------------|
+😿  service default/frontend-service has no node port
+❗  Services [default/frontend-service] have type "ClusterIP" not meant to be exposed, however for local development minikube allows you to access this !
+🏃  Starting tunnel for service frontend-service.
+|-----------|------------------|-------------|------------------------|
+| NAMESPACE |       NAME       | TARGET PORT |          URL           |
+|-----------|------------------|-------------|------------------------|
+| default   | frontend-service |             | http://127.0.0.1:61279 |
+|-----------|------------------|-------------|------------------------|
+🎉  Opening service default/frontend-service in default browser...
+❗  Because you are using a Docker driver on windows, the terminal needs to be open to run it.
+
+
+# displaying all components
+
+PS D:\placement-notes\Tute Dude> kubectl get all
+NAME                                       READY   STATUS    RESTARTS   AGE
+pod/backend-deployment-6b6df5b5f7-864jk    1/1     Running   0          5m54s
+pod/backend-deployment-6b6df5b5f7-tzjhq    1/1     Running   0          5m54s
+pod/frontend-deployment-579c9474c7-jc8zb   1/1     Running   0          5m54s
+pod/frontend-deployment-579c9474c7-nr6kw   1/1     Running   0          5m54s
+
+NAME                       TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+service/backend-service    ClusterIP   10.101.222.238   <none>        5000/TCP   5m54s
+service/frontend-service   ClusterIP   10.106.85.181    <none>        4000/TCP   5m54s
+service/kubernetes         ClusterIP   10.96.0.1        <none>        443/TCP    9m43s
+
+NAME                                  READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/backend-deployment    2/2     2            2           5m54s
+deployment.apps/frontend-deployment   2/2     2            2           5m54s
+
+NAME                                             DESIRED   CURRENT   READY   AGE
+replicaset.apps/backend-deployment-6b6df5b5f7    2         2         2       5m54s
+replicaset.apps/frontend-deployment-579c9474c7   2         2         2       5m54s
