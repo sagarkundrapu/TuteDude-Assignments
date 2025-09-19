@@ -1,0 +1,58 @@
+PS D:\placement-notes\Tute Dude\Assignment9> aws configure    
+AWS Access Key ID [****************HVVL]: 
+AWS Secret Access Key [****************Kf7r]: 
+Default region name [us-east-1]: 
+Default output format [json]: 
+
+
+Part 1: Deploy Flask and Express on a Single EC2 Instance
+
+Python for Flask :
+    # Update package index
+    sudo apt update
+
+    # Install Python and pip
+    sudo apt install -y python3 python3-pip python3-venv
+
+    # Verify installation
+    python3 --version
+    pip3 --version
+
+ubuntu@ip-172-31-21-31:~$ python3 --version
+Python 3.12.3
+
+    pip3 install Flask
+
+ubuntu@ip-172-31-21-31:~$ flask --version
+Python 3.12.3
+Flask 3.0.2
+Werkzeug 3.0.1
+
+Node.js for Express :
+    # Update package index
+    sudo apt update
+
+    # Install Node.js and npm (from Ubuntu repo)
+    sudo apt install -y nodejs npm
+
+    # Verify installation
+    node -v
+    npm -v
+
+ubuntu@ip-172-31-21-31:~$ node -v
+v18.19.1
+
+
+Git for pulling the application code :
+
+    # Update package index
+    sudo apt update
+
+    # Install Git
+    sudo apt install -y git
+
+    # Verify installation
+    git --version
+
+ubuntu@ip-172-31-21-31:~$ git --version
+git version 2.43.0
