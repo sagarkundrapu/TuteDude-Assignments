@@ -21,7 +21,11 @@ Python for Flask :
 ubuntu@ip-172-31-21-31:~$ python3 --version
 Python 3.12.3
 
+# source venv/bin/activate
+# deactivate
+
     pip3 install Flask
+    sudo apt install python3-flask
 
 ubuntu@ip-172-31-21-31:~$ flask --version
 Python 3.12.3
@@ -56,3 +60,61 @@ Git for pulling the application code :
 
 ubuntu@ip-172-31-21-31:~$ git --version
 git version 2.43.0
+
+
+===========================================
+
+ubuntu@ip-172-31-21-31:~$ git clone https://github.com/sagarkundrapu/Assignment9.git
+Cloning into 'Assignment9'...
+remote: Enumerating objects: 14, done.
+remote: Counting objects: 100% (14/14), done.
+remote: Compressing objects: 100% (10/10), done.
+remote: Total 14 (delta 0), reused 14 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (14/14), 11.52 KiB | 3.84 MiB/s, done.
+
+ubuntu@ip-172-31-21-31:~$ ls
+Assignment9  venv
+
+==============
+
+ubuntu@ip-172-31-21-31:~/Assignment9/backend$ sudo npm install -g pm2
+added 133 packages in 5s
+13 packages are looking for funding
+  run `npm fund` for details
+
+=======================
+
+ubuntu@ip-172-31-21-31:~/Assignment9/frontend$ npm i express axios ejs 
+added 87 packages, and audited 88 packages in 2s
+18 packages are looking for funding
+  run `npm fund` for details
+found 0 vulnerabilities
+
+==============================
+sudo apt install -y fontconfig openjdk-17-jre
+java -version
+
+ubuntu@ip-172-31-21-31:~$ java -version
+openjdk version "17.0.16" 2025-07-15
+OpenJDK Runtime Environment (build 17.0.16+8-Ubuntu-0ubuntu124.04.1)
+OpenJDK 64-Bit Server VM (build 17.0.16+8-Ubuntu-0ubuntu124.04.1, mixed mode, sharing)
+
+sudo apt update
+sudo apt install -y curl gnupg2 software-properties-common
+
+curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+sudo apt update
+sudo apt install -y jenkins
+
+sudo systemctl start jenkins
+sudo systemctl enable jenkins
+sudo systemctl status jenkins
+======================================================
+ubuntu@ip-172-31-21-31:~$ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+902b37a9174c4d47a530184c107afd90
