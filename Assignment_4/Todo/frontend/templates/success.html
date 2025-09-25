@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #f0fff0;
+            font-family: Arial, sans-serif;
+        }
+        .success-message {
+            color: #2e7d32;
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+        .success-image {
+            width: 120px;
+            height: 120px;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Success" class="success-image">
+    <div class="success-message">
+        Item Submitted successful!
+    </div>
+    <a href="/" style="text-decoration: none;">
+        <button
+            style="margin-top: 30px; padding: 10px 24px; font-size: 1rem; background-color: #2e7d32; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background 0.2s, transform 0.2s;"
+            onmousedown="this.style.transform='scale(0.95)'; this.style.background='#276628';"
+            onmouseup="this.style.transform='scale(1)'; this.style.background='#2e7d32';"
+            onmouseleave="this.style.transform='scale(1)'; this.style.background='#2e7d32';"
+        >
+            Add New Item
+        </button>
+    </a>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flask API app</title>
+</head>
+<body>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 80vh;">
+        <h2>Welcome to the Flask API App</h2>
+        <form action="/api" method="get">
+            <button type="submit" class="api-btn">Go to /api route</button>
+            </form>
+            <style>
+                body {
+                    font-family: 'Segoe UI', Arial, sans-serif;
+                    background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+                    margin: 0;
+                    padding: 0;
+                }
+                h2 {
+                    color: #333;
+                    margin-bottom: 24px;
+                    letter-spacing: 1px;
+                }
+                .api-btn {
+                    padding: 12px 28px;
+                    font-size: 18px;
+                    background: linear-gradient(90deg, #4f8cff 0%, #38e6b0 100%);
+                    color: #fff;
+                    border: none;
+                    border-radius: 6px;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+                    cursor: pointer;
+                    transition: background 0.3s, transform 0.2s;
+                }
+                .api-btn:hover {
+                    background: linear-gradient(90deg, #38e6b0 0%, #4f8cff 100%);
+                    transform: translateY(-2px) scale(1.04);
+                }
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .container {
+                    background: #fff;
+                    padding: 32px 40px;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+                }
+            </style>
+        </form>
+    </div>
+</body>
+</html>

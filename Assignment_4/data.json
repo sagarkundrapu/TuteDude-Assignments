@@ -1,0 +1,11 @@
+{
+  "name": "Sagar",
+  "age": 22,
+  "isStudent": true,
+  "skills": ["C++", "JavaScript", "Python"],
+  "address": {
+    "city": "Vijayawada",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  }
+}
